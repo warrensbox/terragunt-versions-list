@@ -1,0 +1,42 @@
+# Trigger when commits are pushed to the master branch
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  hubapp-build:
+    name: Workflow
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Checkout go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '^1.16' # The Go version to download (if necessary) and use.
+
+    - name: Go version
+      id: Version
+      run: go version
+
+    - name: Go ls
+      run: ls
+
+    - name: Go path
+      run: echo $GOPATH
+
+    - name: Go download
+      run: go mod download
+
+    - name: Go test
+      run: go test -v ./...
+      continue-on-error: true

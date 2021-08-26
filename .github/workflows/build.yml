@@ -40,3 +40,7 @@ jobs:
     - name: Go test
       run: go test -v ./...
       continue-on-error: true
+      
+    - name: Run Go
+      run: go run main.go
+      continue-on-error: true

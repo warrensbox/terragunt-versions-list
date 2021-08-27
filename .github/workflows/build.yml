@@ -43,4 +43,21 @@ jobs:
       
     - name: Run Go
       run: go run main.go
-      continue-on-error: true
+      continue-on-error: false
+      
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install mkdocs-material
+        
+    - name: Build page   
+      run: cd www && mkdocs gh-deploy --force
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+

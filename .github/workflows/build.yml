@@ -45,5 +45,9 @@ jobs:
       run: go run main.go
       continue-on-error: false
       
+    - name: Make Doc Dir
+      run: mkdir -p doc && mv index.json doc
+      continue-on-error: false
+      
 
 

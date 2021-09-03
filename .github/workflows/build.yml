@@ -49,5 +49,9 @@ jobs:
       run: mkdir -p doc && mv index.json doc
       continue-on-error: false
       
+    - name: Git push
+      run: git add .; git commit -m "test";git push
+      continue-on-error: false
+      
 
 

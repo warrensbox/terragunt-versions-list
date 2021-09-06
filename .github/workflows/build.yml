@@ -50,7 +50,7 @@ jobs:
       continue-on-error: false
       
     - name: Git push
-      run: git add .; git commit -m "test";git push
+      run: git config --global user.email "warren.veerasingam@gmail.com";  git config --global user.name "warren.veerasingam"; git add .; git commit -m "test";git push
       continue-on-error: false
       
 

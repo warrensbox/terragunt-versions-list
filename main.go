@@ -25,15 +25,6 @@ func main() {
 	client.ClientSecret = CLIENT_SECRET
 
 	allVersions, _ := lib.GetAppList(terragruntURL, &client)
-
-	// fileList := "list"
-	// if !lib.CheckFileExist(fileList) {
-	// 	err := ioutil.WriteFile(fileList, []byte("Hello"), 0600)
-	// 	if err != nil {
-	// 		fmt.Printf("Unable to write file: %v", err)
-	// 	}
-	// }
-
 	var list List
 	list.Versions = allVersions
 

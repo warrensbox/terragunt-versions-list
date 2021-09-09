@@ -30,7 +30,7 @@ func main() {
 
 	file, _ := json.MarshalIndent(list, "", " ")
 
-	_ = ioutil.WriteFile("test.json", file, 0644)
+	_ = ioutil.WriteFile("index.json", file, 0644)
 }
 
 type List struct {

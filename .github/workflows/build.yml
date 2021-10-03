@@ -1,9 +1,6 @@
 # Trigger when commits are pushed to the master branch
 
 on:
-  push:
-    branches:
-      - master
   schedule:
   - cron: "*/3 * * * *"
   pull_request:

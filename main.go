@@ -33,13 +33,13 @@ func main() {
 	currentTime := time.Now()
 	fmt.Println("YYYY.MM.DD : ", currentTime.Format("2006.01.02 15:04:05"))
 	lastUpdate := currentTime.Format("2006.01.02 15:04:05")
-	list.LastUpdated = lastUpdate
+	list.LastUpdated = fmt.Sprintf("%s UTC", lastUpdate)
 	file, _ := json.MarshalIndent(list, "", " ")
 
 	_ = ioutil.WriteFile("index.json", file, 0644)
 }
 
 type List struct {
-	LastUpdated string
+	LastUpdated string   `json:"lastUpdated"`
 	Versions    []string `json:"versions"`
 }

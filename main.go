@@ -2,7 +2,9 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
+	"time"
 
 	"github.com/warrensbox/terragrunt-versions-list/lib"
 	"github.com/warrensbox/terragrunt-versions-list/modal"
@@ -28,11 +30,16 @@ func main() {
 	var list List
 	list.Versions = allVersions
 
+	currentTime := time.Now()
+	fmt.Println("YYYY.MM.DD : ", currentTime.Format("2006.01.02 15:04:05"))
+	lastUpdate := currentTime.Format("2006.01.02 15:04:05")
+	list.LastUpdated = lastUpdate
 	file, _ := json.MarshalIndent(list, "", " ")
 
 	_ = ioutil.WriteFile("index.json", file, 0644)
 }
 
 type List struct {
-	Versions []string `json:"versions"`
+	LastUpdated string
+	Versions    []string `json:"versions"`
 }

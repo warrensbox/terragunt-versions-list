@@ -1,8 +1,8 @@
 # Trigger when commits are pushed to the master branch
-!!
+
 on:
   schedule:
-  - cron: "0 */3 * * *"
+  - cron: "0 */6 * * *"
   pull_request:
   workflow_dispatch:
 

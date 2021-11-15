@@ -45,7 +45,7 @@ jobs:
       continue-on-error: false
       
     - name: Make Doc Dir
-      run: mkdir -p doc && mv index.json doc
+      run: mkdir -p docs && mv index.json docs
       continue-on-error: false
       
     - name: Git push
